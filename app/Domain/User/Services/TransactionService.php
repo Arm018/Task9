@@ -26,7 +26,9 @@ class TransactionService
         if ($sender == null || $receiver == null) {
             throw new Exception('Invalid user ID or email');
         }
-
+        if ($sender->getId() == $receiver->getId()) {
+            throw new Exception('You cannot transfer money to yourself');
+        }
         if ($sender->getBalance() < $amount) {
             throw new Exception('Insufficient balance');
         }
