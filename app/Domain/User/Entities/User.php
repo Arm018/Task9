@@ -5,7 +5,6 @@ namespace App\Domain\User\Entities;
 class User
 {
     private int $id;
-
     private string $name;
     private string $email;
     private float $balance;
@@ -27,6 +26,7 @@ class User
     {
         return $this->name;
     }
+
     public function getEmail(): string
     {
         return $this->email;

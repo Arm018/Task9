@@ -8,15 +8,17 @@ class Transaction
     private int $sender_id;
     private int $receiver_id;
     private float $amount;
+    private ?\DateTime $created_at;
 
-    public function __construct(?int $id, int $sender_id, int $receiver_id, float $amount)
+    public function __construct(?int $id, int $sender_id, int $receiver_id, float $amount, ?\DateTime $created_at = null)
     {
+        $this->id = $id;
         $this->sender_id = $sender_id;
         $this->receiver_id = $receiver_id;
         $this->amount = $amount;
+        $this->created_at = $created_at;
 
     }
-
 
     public function getId(): ?int
     {
@@ -36,6 +38,11 @@ class Transaction
     public function getAmount(): float
     {
         return $this->amount;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->created_at;
     }
 
 

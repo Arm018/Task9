@@ -31,10 +31,4 @@ class EloquentUserRepository implements UserRepository
         $eloquentUser->save();
     }
 
-    public function delete(User $user): void
-    {
-        $eloquentUser = EloquentUser::findOrFail($user->getId());
-        $eloquentUser->delete();
-
-    }
 }
